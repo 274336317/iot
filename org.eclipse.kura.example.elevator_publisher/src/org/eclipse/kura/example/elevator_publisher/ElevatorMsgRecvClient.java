@@ -10,6 +10,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+//Ìí¼Ó×¢ÊÍ
 public class ElevatorMsgRecvClient {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ElevatorMsgRecvClient.class);
