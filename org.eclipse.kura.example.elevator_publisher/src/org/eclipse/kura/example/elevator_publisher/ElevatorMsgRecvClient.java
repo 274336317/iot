@@ -22,7 +22,7 @@ public class ElevatorMsgRecvClient {
 
 	private MqttClient client;
 	private String userName = "mqtt";
-	private String passWord = "mqtt";
+	private String passWord = "mqtt"; 
 
 
 	private MqttConnectOptions options;
