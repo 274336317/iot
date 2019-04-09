@@ -1,0 +1,20 @@
+#Deployment Plugin Project File
+#Tue Apr 09 11:51:31 CST 2019
+build.ant.name=<.>\\resources\\dp\\elevator_publisher_build.xml
+build.dp.file=<.>\\resources\\dp\\elevator_publisher.dp
+build.location=
+bundles.0.bundle_path=<.>\\.project
+bundles.0.customizer=false
+bundles.0.headers.count=0
+bundles.0.missing=false
+bundles.0.name=bundles/org.eclipse.kura.example.elevator_publisher.jar
+bundles.0.symbolic_name=org.eclipse.kura.example.elevator_publisher;singleton\:\=true
+bundles.0.version=1.0.0.qualifier
+bundles.count=1
+certificates.count=0
+general.signbundles=false
+headers.other.headers=
+headers.symbolic.name=org.eclipse.kura.example.elevator_publisher.ElevatorPublisher
+headers.version=1.0.0
+resources.count=0
+
