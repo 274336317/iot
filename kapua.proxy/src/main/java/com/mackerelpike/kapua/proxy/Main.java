@@ -54,7 +54,7 @@ public class Main
             
             System.out.println(result);
             
-            ChannelInfo ci = cr.getItems()[1];
+            ChannelInfo ci = cr.getItems()[0];
             
             url = "http://192.168.0.111:8081/v1/"+user.getScopeId()+"/data/messages?";
             url += "scopeId=" + URLEncoder.encode(user.getScopeId(),"UTF-8");
