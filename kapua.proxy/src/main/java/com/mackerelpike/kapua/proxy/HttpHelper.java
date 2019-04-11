@@ -56,7 +56,8 @@ public class HttpHelper
 				}
 			}
 			
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			logger.error("post请求提交失败:" + url, e);
 		}
 
