@@ -1,57 +1,66 @@
 package com.mackerelpike.kapua.proxy;
 
-public class ChannelsResult 
+public class ChannelsResult
 {
 
-	private String type;
-	
-	private boolean limitExceeded;
-	
-	private int size;
-	
-	private ChannelInfo [] items;
-	
-	private int totalCount;
+	private String			type;
 
-	public String getType() {
+	private boolean			limitExceeded;
+
+	private int				size;
+
+	private ChannelInfo[]	items;
+
+	private int				totalCount;
+
+	public String getType()
+	{
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(String type)
+	{
 		this.type = type;
 	}
 
-	public boolean isLimitExceeded() {
+	public boolean isLimitExceeded()
+	{
 		return limitExceeded;
 	}
 
-	public void setLimitExceeded(boolean limitExceeded) {
+	public void setLimitExceeded(boolean limitExceeded)
+	{
 		this.limitExceeded = limitExceeded;
 	}
 
-	public int getSize() {
+	public int getSize()
+	{
 		return size;
 	}
 
-	public void setSize(int size) {
+	public void setSize(int size)
+	{
 		this.size = size;
 	}
 
-	public ChannelInfo[] getItems() {
+	public ChannelInfo[] getItems()
+	{
 		return items;
 	}
 
-	public void setItems(ChannelInfo[] items) {
+	public void setItems(ChannelInfo[] items)
+	{
 		this.items = items;
 	}
 
-	public int getTotalCount() {
+	public int getTotalCount()
+	{
 		return totalCount;
 	}
 
-	public void setTotalCount(int totalCount) {
+	public void setTotalCount(int totalCount)
+	{
 		this.totalCount = totalCount;
 	}
-	
-	
+
 }

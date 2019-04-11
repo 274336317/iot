@@ -1,35 +1,41 @@
 package com.mackerelpike.kapua.proxy;
 
-public class KapuaProxy 
+public class KapuaProxy
 {
-	private String userName;
-	
-	private String password;
-	
-	private String url;
+	private String	userName;
 
-	public String getUrl() {
+	private String	password;
+
+	private String	url;
+
+	public String getUrl()
+	{
 		return url;
 	}
 
-	public void setUrl(String url) {
+	public void setUrl(String url)
+	{
 		this.url = url;
 	}
 
-	public String getUserName() {
+	public String getUserName()
+	{
 		return userName;
 	}
 
-	public void setUserName(String userName) {
+	public void setUserName(String userName)
+	{
 		this.userName = userName;
 	}
 
-	public String getPassword() {
+	public String getPassword()
+	{
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password)
+	{
 		this.password = password;
 	}
-	
+
 }

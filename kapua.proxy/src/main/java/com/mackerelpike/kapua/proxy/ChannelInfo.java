@@ -1,97 +1,114 @@
 package com.mackerelpike.kapua.proxy;
 
-public class ChannelInfo {
-	
-	private String type;
-	
-	private String id;
-	
-	private String scopeId;
-	
-	private String clientId;
-	
-	private String name;
-	
-	private String firstMessageId;
-	
-	private String firstMessageOn;
-	
-	private String lastMessageId;
-	
-	private String lastMessageOn;
+public class ChannelInfo
+{
 
-	public String getType() {
+	private String	type;
+
+	private String	id;
+
+	private String	scopeId;
+
+	private String	clientId;
+
+	private String	name;
+
+	private String	firstMessageId;
+
+	private String	firstMessageOn;
+
+	private String	lastMessageId;
+
+	private String	lastMessageOn;
+
+	public String getType()
+	{
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(String type)
+	{
 		this.type = type;
 	}
 
-	public String getId() {
+	public String getId()
+	{
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(String id)
+	{
 		this.id = id;
 	}
 
-	public String getScopeId() {
+	public String getScopeId()
+	{
 		return scopeId;
 	}
 
-	public void setScopeId(String scopeId) {
+	public void setScopeId(String scopeId)
+	{
 		this.scopeId = scopeId;
 	}
 
-	public String getClientId() {
+	public String getClientId()
+	{
 		return clientId;
 	}
 
-	public void setClientId(String clientId) {
+	public void setClientId(String clientId)
+	{
 		this.clientId = clientId;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 
-	public String getFirstMessageId() {
+	public String getFirstMessageId()
+	{
 		return firstMessageId;
 	}
 
-	public void setFirstMessageId(String firstMessageId) {
+	public void setFirstMessageId(String firstMessageId)
+	{
 		this.firstMessageId = firstMessageId;
 	}
 
-	public String getFirstMessageOn() {
+	public String getFirstMessageOn()
+	{
 		return firstMessageOn;
 	}
 
-	public void setFirstMessageOn(String firstMessageOn) {
+	public void setFirstMessageOn(String firstMessageOn)
+	{
 		this.firstMessageOn = firstMessageOn;
 	}
 
-	public String getLastMessageId() {
+	public String getLastMessageId()
+	{
 		return lastMessageId;
 	}
 
-	public void setLastMessageId(String lastMessageId) {
+	public void setLastMessageId(String lastMessageId)
+	{
 		this.lastMessageId = lastMessageId;
 	}
 
-	public String getLastMessageOn() {
+	public String getLastMessageOn()
+	{
 		return lastMessageOn;
 	}
 
-	public void setLastMessageOn(String lastMessageOn) {
+	public void setLastMessageOn(String lastMessageOn)
+	{
 		this.lastMessageOn = lastMessageOn;
 	}
-	
-	
 
 }
