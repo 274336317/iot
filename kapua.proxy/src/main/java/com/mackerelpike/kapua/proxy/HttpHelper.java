@@ -1,36 +1,39 @@
 package com.mackerelpike.kapua.proxy;
 
+import java.io.IOException;
+
 import org.apache.commons.httpclient.HttpStatus;
-import org.apache.http.HttpResponse;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.net.URLDecoder;
-
 public class HttpHelper
 {
 	private static Logger LOG = LoggerFactory.getLogger(HttpHelper.class);
 
-	public static String httpPost(String url, String jsonParam)
+	public static String SendHttpPost(String url, String jsonParam)
 	{
-		return httpPost(url, jsonParam, false);
+		return SendHttpPost(url, jsonParam, false);
 	}
 
-	public static String httpPost(String url, String jsonParam, boolean noNeedResponse)
+	public static String SendHttpPost(String url, String jsonParam, boolean noNeedResponse)
 	{
-		// post请求返回结果
-		DefaultHttpClient	httpClient	= new DefaultHttpClient();
-		String				jsonResult	= null;
-		HttpPost			method		= new HttpPost(url);
-		try
+		String jsonResult = null;
+
+		try (CloseableHttpClient httpClient = HttpClientBuilder.create().build())
 		{
+			HttpPost method = new HttpPost(url);
+
+			LOG.debug("Post Request To {}", url);
+
 			if (null != jsonParam)
 			{
 				StringEntity entity = new StringEntity(jsonParam.toString(), "utf-8");
@@ -38,74 +41,67 @@ public class HttpHelper
 				entity.setContentType("application/json");
 				method.setEntity(entity);
 			}
-			HttpResponse result = httpClient.execute(method);
-			url = URLDecoder.decode(url, "UTF-8");
-			/** 请求发送成功，并得到响应 **/
-			if (result.getStatusLine().getStatusCode() == 200)
-			{
-				try
-				{
 
+			try (CloseableHttpResponse response = httpClient.execute(method);)
+			{
+				HttpEntity responseEntity = response.getEntity();
+				LOG.info("The Returened StatusCode:{}", response.getStatusLine().getStatusCode());
+				if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK)
+				{
 					if (noNeedResponse)
 					{
 						return null;
 					}
-					/** 读取服务器返回过来的json字符串数据 **/
-					jsonResult = EntityUtils.toString(result.getEntity());
-				} catch (Exception e)
-				{
-					LOG.error("post请求提交失败:" + url, e);
+					jsonResult = EntityUtils.toString(responseEntity);
+
+					if (LOG.isDebugEnabled())
+					{
+						LOG.debug("The Returened Body\n:{}", jsonResult);
+					}
 				}
 			}
-
 		} catch (IOException e)
 		{
-			LOG.error("post请求提交失败:" + url, e);
+			LOG.error("Post Request To:[{}] Failed!", url, e);
 		}
 
 		return jsonResult;
 	}
 
-	/**
-	 * 发送get请求
-	 * 
-	 * @param url 路径
-	 * @return
-	 */
-	public static String httpGet(String url, String jwtToken)
+	public static String SendHttpGet(String url, String jwtToken)
 	{
-		// get请求返回结果
 		String jsonResult = null;
-		try
+		try (CloseableHttpClient httpClient = HttpClientBuilder.create().build())
 		{
-			DefaultHttpClient	client	= new DefaultHttpClient();
 			// 发送get请求
-			HttpGet				request	= new HttpGet(url);
+			HttpGet request = new HttpGet(url);
+
+			LOG.debug("Post Request To {}", url);
 
 			request.setHeader("Authorization", "Bearer " + jwtToken);
-			// request.setHeader("Content-type", "application/json");
 			request.setHeader(new BasicHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8"));
 			request.setHeader(new BasicHeader("Accept", "application/json;charset=utf-8"));
 
-			HttpResponse response = client.execute(request);
-
-			/** 请求发送成功，并得到响应 **/
-			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK)
+			try (CloseableHttpResponse response = httpClient.execute(request);)
 			{
+				HttpEntity responseEntity = response.getEntity();
 
-				jsonResult = EntityUtils.toString(response.getEntity());
+				LOG.info("The Returened StatusCode:{}", response.getStatusLine().getStatusCode());
 
-				url = URLDecoder.decode(url, "UTF-8");
-			} else
-			{
+				if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK)
+				{
 
-				System.out.println(response.toString());
+					jsonResult = EntityUtils.toString(responseEntity);
 
-				LOG.error("get请求提交失败:" + url);
+					if (LOG.isDebugEnabled())
+					{
+						LOG.debug("The Returened Body\n:{}", jsonResult);
+					}
+				}
 			}
 		} catch (IOException e)
 		{
-			LOG.error("get请求提交失败:" + url, e);
+			LOG.error("Post Request To:[{}] Failed!", url, e);
 		}
 		return jsonResult;
 	}

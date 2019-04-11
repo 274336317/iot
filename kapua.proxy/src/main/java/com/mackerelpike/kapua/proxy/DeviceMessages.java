@@ -66,6 +66,68 @@ public class DeviceMessages
 		private String	deviceId;
 
 		private Payload	payload;
+		
+		private String receivedOn;
+		
+		private String scopeId;
+		
+		private String sentOn;
+		
+		private String datastoreId;
+		
+		private String timestamp;
+		
+		
+
+		public String getReceivedOn()
+		{
+			return receivedOn;
+		}
+
+		public void setReceivedOn(String receivedOn)
+		{
+			this.receivedOn = receivedOn;
+		}
+
+		public String getScopeId()
+		{
+			return scopeId;
+		}
+
+		public void setScopeId(String scopeId)
+		{
+			this.scopeId = scopeId;
+		}
+
+		public String getSentOn()
+		{
+			return sentOn;
+		}
+
+		public void setSentOn(String sentOn)
+		{
+			this.sentOn = sentOn;
+		}
+
+		public String getDatastoreId()
+		{
+			return datastoreId;
+		}
+
+		public void setDatastoreId(String datastoreId)
+		{
+			this.datastoreId = datastoreId;
+		}
+
+		public String getTimestamp()
+		{
+			return timestamp;
+		}
+
+		public void setTimestamp(String timestamp)
+		{
+			this.timestamp = timestamp;
+		}
 
 		public String getType()
 		{
@@ -149,16 +211,6 @@ public class DeviceMessages
 	{
 		private Metric[]	metrics;
 
-		private String		receivedOn;
-
-		private String		scopeId;
-
-		private String		sentOn;
-
-		private String		datastoreId;
-
-		private String		timestamp;
-
 		public Metric[] getMetrics()
 		{
 			return metrics;
@@ -167,56 +219,6 @@ public class DeviceMessages
 		public void setMetrics(Metric[] metrics)
 		{
 			this.metrics = metrics;
-		}
-
-		public String getReceivedOn()
-		{
-			return receivedOn;
-		}
-
-		public void setReceivedOn(String receivedOn)
-		{
-			this.receivedOn = receivedOn;
-		}
-
-		public String getScopeId()
-		{
-			return scopeId;
-		}
-
-		public void setScopeId(String scopeId)
-		{
-			this.scopeId = scopeId;
-		}
-
-		public String getSentOn()
-		{
-			return sentOn;
-		}
-
-		public void setSentOn(String sentOn)
-		{
-			this.sentOn = sentOn;
-		}
-
-		public String getDatastoreId()
-		{
-			return datastoreId;
-		}
-
-		public void setDatastoreId(String datastoreId)
-		{
-			this.datastoreId = datastoreId;
-		}
-
-		public String getTimestamp()
-		{
-			return timestamp;
-		}
-
-		public void setTimestamp(String timestamp)
-		{
-			this.timestamp = timestamp;
 		}
 
 	}

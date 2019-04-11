@@ -10,7 +10,7 @@ public class LoginHelper
 
 		String		param	= "{ \"username\": \"" + userName + "\", \"password\": \"" + password + "\" }";
 
-		String		result	= HttpHelper.httpPost(loginUrl, param);
+		String		result	= HttpHelper.SendHttpPost(loginUrl, param);
 		if (result != null)
 		{
 			Gson g = new Gson();
