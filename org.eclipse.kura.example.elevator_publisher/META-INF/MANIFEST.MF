@@ -5,7 +5,8 @@ Bundle-SymbolicName: org.eclipse.kura.example.elevator_publisher
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: org.eclipse.kura.example.elevator_publisher
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.kura;version="[1.0.0,2.0.0)",
+Import-Package: com.google.gson;version="1.0.0",
+ org.eclipse.kura;version="[1.0.0,2.0.0)",
  org.eclipse.kura.cloud;version="[1.0.0,2.0.0)",
  org.eclipse.kura.configuration;version="[1.0.0,2.0.0)",
  org.eclipse.kura.message;version="[1.0.0,2.0.0)",

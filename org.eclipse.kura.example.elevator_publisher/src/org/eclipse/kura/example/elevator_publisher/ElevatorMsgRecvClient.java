@@ -67,7 +67,7 @@ public class ElevatorMsgRecvClient {
 
 				public void messageArrived(String topic, MqttMessage message) throws Exception {
 					LOGGER.info("RECV MSG:{}", message.toString());
-					publisher.doPublish(message.toString());
+					//publisher.doPublish(message.toString());
 				}
 			});
 			

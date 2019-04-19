@@ -39,7 +39,7 @@ public class ElevatorPublisher implements ConfigurableComponent, CloudClientList
     private BundleContext bundleContext;
     private ElevatorPublisherOptions ElevatorPublisherOptions;
     
-    private ElevatorMsgRecvClient recvClient;
+    private SensorsMsgRecvClient recvClient;
     
     static 
     {
@@ -57,7 +57,7 @@ public class ElevatorPublisher implements ConfigurableComponent, CloudClientList
         this.initCloudServiceTracking();
         this.doUpdate();
         this.subscribe();
-        this.recvClient = new ElevatorMsgRecvClient(this);
+        this.recvClient = new SensorsMsgRecvClient(this);
         this.recvClient.init();
         logger.info("Activating ElevatorPublisher... Done.");
     }
@@ -154,14 +154,18 @@ public class ElevatorPublisher implements ConfigurableComponent, CloudClientList
 //        }, 0L, pubrate, TimeUnit.MILLISECONDS);
     }
     
-    public void doPublish(String message) {
+    public void doPublish(SensorsMsg msg) {
 
         try {
         	KuraPayload payload = new KuraPayload();
 
             payload.setTimestamp(new Date());
 
-            payload.addMetric("rate", System.currentTimeMillis());
+            payload.addMetric("temperature", msg.getTemperature());
+            payload.addMetric("humidity", msg.getHumidity());
+            payload.addMetric("timestamp", msg.getTimestamp());
+            
+            
             if (Objects.nonNull(this.cloudService) && Objects.nonNull(this.cloudClient)) {
 
                 final int messageId = this.cloudClient.publish("data/metrics", payload, 0, true);

@@ -29,7 +29,7 @@ public class ElevatorPublisherOptions {
 	}
 
 	public String getAppId() {
-		String appId = "ELEVATOR_PUBLISHER";
+		String appId = "SENSORS_PUBLISHER";
 		return appId;
 	}
 }
