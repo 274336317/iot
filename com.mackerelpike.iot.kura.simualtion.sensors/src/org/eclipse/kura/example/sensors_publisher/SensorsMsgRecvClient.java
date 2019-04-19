@@ -1,4 +1,4 @@
-package com.mackerelpike.iot.kura.simualtion.sensors;
+package org.eclipse.kura.example.sensors_publisher;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -10,13 +10,13 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 public class SensorsMsgRecvClient 
 {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SensorsMsgRecvClient.class);
 
-	public static final String HOST = "tcp://192.168.0.109:1883";
+	public static final String HOST = "tcp://192.168.0.163:1883";
 	// 定义一个主题
 	public static final String TOPIC = "sensors/temperature_humidity";
 	// 定义MQTT的ID，可以在MQTT服务配置中指定
@@ -74,11 +74,11 @@ public class SensorsMsgRecvClient
 					
 					try
 					{
-						Gson gson = new Gson();
-						
-						msg = gson.fromJson(message.toString(), SensorsMsg.class);
-						
-						publisher.doPublish(msg);
+//						Gson gson = new Gson();
+//						
+//						msg = gson.fromJson(message.toString(), SensorsMsg.class);
+//						
+//						publisher.doPublish(msg);
 					}
 					catch(Exception ex)
 					{

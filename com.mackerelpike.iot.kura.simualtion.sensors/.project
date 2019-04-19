@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>com.mackerelpike.iot.kura.simualtion.sensors</name>
+	<name>org.eclipse.kura.example.sensors_publisher</name>
 	<comment></comment>
 	<projects>
 	</projects>

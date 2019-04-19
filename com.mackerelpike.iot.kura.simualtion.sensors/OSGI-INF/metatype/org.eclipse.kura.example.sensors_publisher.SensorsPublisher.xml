@@ -13,7 +13,7 @@
 
 -->
 <MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
-    <OCD id="com.mackerelpike.iot.kura.simualtion.sensors.SensorsPublisher"
+    <OCD id="org.eclipse.kura.example.sensors_publisher.SensorsPublisher"
          name="ElevatorPublisher"
          description="Example of a Configuring Kura Application.">
 
@@ -207,7 +207,7 @@
             description="Test optional strng metric. Leave EMPTY."/>
 
     </OCD>
-    <Designate pid="com.mackerelpike.iot.kura.simualtion.sensors.SensorsPublisher" factoryPid="com.mackerelpike.iot.kura.simualtion.sensors.SensorsPublisher">
-        <Object ocdref="com.mackerelpike.iot.kura.simualtion.sensors.SensorsPublisher"/>
+    <Designate pid="org.eclipse.kura.example.sensors_publisher.SensorsPublisher" factoryPid="org.eclipse.kura.example.sensors_publisher.SensorsPublisher">
+        <Object ocdref="org.eclipse.kura.example.sensors_publisher.SensorsPublisher"/>
     </Designate>
 </MetaData>

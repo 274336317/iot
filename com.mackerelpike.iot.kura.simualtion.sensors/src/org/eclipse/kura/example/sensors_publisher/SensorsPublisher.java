@@ -1,4 +1,4 @@
-package com.mackerelpike.iot.kura.simualtion.sensors;
+package org.eclipse.kura.example.sensors_publisher;
 
 import java.util.Date;
 import java.util.Map;
@@ -48,7 +48,7 @@ public class SensorsPublisher implements ConfigurableComponent, CloudClientListe
         logger = LoggerFactory.getLogger((Class)SensorsPublisher.class);
     }
     
-    protected void activate(final ComponentContext componentContext, final Map<String, Object> properties) 
+    public void activate(final ComponentContext componentContext, final Map<String, Object> properties) 
     {
         logger.info("Activating SensorsPublisher...");
         this.worker = Executors.newSingleThreadScheduledExecutor();
@@ -64,7 +64,7 @@ public class SensorsPublisher implements ConfigurableComponent, CloudClientListe
         logger.info("Activating SensorsPublisher... Done.");
     }
     
-    protected void deactivate(final ComponentContext componentContext) {
+    public void deactivate(final ComponentContext componentContext) {
         logger.info("Deactivating SensorsPublisher...");
         this.worker.shutdown();
         logger.info("Releasing CloudApplicationClient for {}...", (Object)this.sensorsPublisherOptions.getAppId());
@@ -258,8 +258,8 @@ public class SensorsPublisher implements ConfigurableComponent, CloudClientListe
 //        }
     }
     
-    static  void access$1(final SensorsPublisher SensorsPublisher, final CloudService cloudService) {
-        SensorsPublisher.cloudService = cloudService;
+    static  void access$1(final SensorsPublisher sensorsPublisher, final CloudService cloudService) {
+        sensorsPublisher.cloudService = cloudService;
     }
     
     private final class CloudPublisherServiceTrackerCustomizer implements ServiceTrackerCustomizer<CloudService, CloudService>

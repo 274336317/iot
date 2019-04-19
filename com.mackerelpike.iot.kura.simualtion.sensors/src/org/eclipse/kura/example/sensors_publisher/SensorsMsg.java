@@ -1,4 +1,4 @@
-package com.mackerelpike.iot.kura.simualtion.sensors;
+package org.eclipse.kura.example.sensors_publisher;
 
 public class SensorsMsg {
 	

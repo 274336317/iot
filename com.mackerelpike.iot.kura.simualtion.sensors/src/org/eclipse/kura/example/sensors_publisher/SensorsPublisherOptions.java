@@ -1,4 +1,4 @@
-package com.mackerelpike.iot.kura.simualtion.sensors;
+package org.eclipse.kura.example.sensors_publisher;
 
 import java.util.Map;
 import java.util.Objects;
@@ -29,7 +29,7 @@ public class SensorsPublisherOptions {
 	}
 
 	public String getAppId() {
-		String appId = "ELEVATOR_PUBLISHER";
+		String appId = "SENSORS_PUBLISHER";
 		return appId;
 	}
 }
